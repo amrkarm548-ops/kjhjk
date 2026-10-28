@@ -1,0 +1,59 @@
+/*
+  Arabic typefaces — chosen to sit beside the hand-drawn Latin faces.
+
+  Mada      → the Arabic reading text (translation + explanation).
+              Modern, open counters, very even rhythm → stays legible at 13px for long study sessions,
+              and its soft rounded terminals echo Patrick Hand without becoming "cute".
+  Lemonada  → Arabic display (brand, chapter & section titles, card heads).
+              A rounded, friendly display face with a clear hand-drawn feel → the Arabic twin of Caveat.
+*/
+
+/* ===== Reading: Mada ===== */
+[dir="rtl"], .ar, [lang^="ar"],
+.arabic-line, .egyptian-line, .seq-ar, .seq-eg,
+.chip > span, .kv-label span, .kv-value small, .row-ar,
+.book-figure figcaption span, .data-table th span,
+.language-label, .seq-eg-tag, .legend, .cover-key span, .cover-key b,
+.cover-description, .cover-list-row span:last-child,
+.slot-badge, .slot-need, .motivation, .reader-end p, .guide-steps,
+.sidebar-section-list button, .chapter-link strong, .nav-label, .progress-caption,
+.toolbar-overline, .export-panel p, .slot-info b, .slot-info p {
+  font-family: 'Mada', 'Tajawal', sans-serif;
+  letter-spacing: 0;
+}
+
+.arabic-line { font-size: 14.2px; font-weight: 500; line-height: 1.95; }
+.egyptian-line { font-size: 13.6px; font-weight: 400; line-height: 1.95; }
+.compact-note .arabic-line { font-size: 13.8px; }
+.compact-note .egyptian-line { font-size: 13.2px; }
+.seq-ar { font-size: 13.6px; font-weight: 500; line-height: 1.95; }
+.seq-eg { font-size: 13.2px; font-weight: 400; line-height: 1.95; }
+.chip > span { font-size: 12px; font-weight: 500; }
+.kv-label span, .data-table th span { font-size: 12px; font-weight: 500; }
+.cover-description { font-size: 15.5px; font-weight: 400; }
+.language-label, .seq-eg-tag { font-weight: 700; }
+
+/* ===== Display: Lemonada ===== */
+.cover-brand, .sidebar-brand, .cover-arabic,
+.chapter-block p, .section-titles p, .subheading-block span,
+.sidebar-top h2, .term-head .ar, .kv-caption .ar,
+.step-head-ar, .end-badge, .toolbar-heading strong,
+.cover-bottom-heading span:last-child, .cover-footer span:last-child, .footer-brand,
+.export-panel h3 {
+  font-family: 'Lemonada', 'Mada', sans-serif;
+  letter-spacing: 0;
+}
+
+.cover-brand { font-size: 56px; font-weight: 700; line-height: 1.5; }
+.cover-arabic { font-size: 24px; font-weight: 600; }
+.chapter-block p { font-size: 20px; font-weight: 600; line-height: 1.7; }
+.section-titles p { font-size: 14.5px; font-weight: 600; line-height: 1.8; }
+.subheading-block span { font-size: 13px; font-weight: 600; }
+.sidebar-top h2 { font-size: 24px; font-weight: 600; line-height: 1.75; }
+.sidebar-brand { font-size: 21px; font-weight: 700; }
+.term-head .ar { font-size: 12px; font-weight: 600; }
+.kv-caption .ar { font-size: 11.5px; font-weight: 600; }
+.footer-brand { font-size: 12.5px; font-weight: 700; }
+.toolbar-heading strong { font-family: 'Lemonada', 'Mada', sans-serif; font-size: 15px; font-weight: 600; }
+.end-badge { font-size: 16px; font-weight: 600; }
+.export-panel h3 { font-size: 17px; font-weight: 600; }

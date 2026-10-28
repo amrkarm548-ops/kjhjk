@@ -1,0 +1,77 @@
+/*
+  Figures size themselves to the picture.
+  The box takes the image's own aspect ratio (read from the file after it loads),
+  so nothing is cropped and no empty band is left under a short image.
+*/
+
+.book-figure.figure-auto img {
+  display: block;
+  width: 100%;
+  height: auto;          /* overridden inline only when a figure is shrunk to fill a page end */
+  max-height: none;
+  object-fit: contain;   /* never crop: the whole diagram must stay readable */
+  background: #fff;
+  border: 1px solid #dfe9e5;
+  border-radius: 10px;
+}
+
+/* A figure shrunk to close a page gap keeps its frame and centres the picture. */
+.book-figure.figure-auto img[style*='height'] { object-fit: contain; }
+
+/* Side-by-side figures align on their captions, whatever their heights. */
+.figure-row { align-items: flex-start; }
+
+/* ===== Link slot (shown when the file is missing or the link is broken) ===== */
+.figure-slot .slot-frame {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 9px;
+  width: 100%; min-height: 150px; padding: 16px;
+  border: 2px dashed #b9cfc9; border-radius: 10px;
+  background: repeating-linear-gradient(45deg, #f7fbf9, #f7fbf9 10px, #f2f7f5 10px, #f2f7f5 20px);
+  text-align: center; cursor: default;
+}
+.figure-slot .slot-frame:hover { border-color: #b9cfc9; background: repeating-linear-gradient(45deg, #f7fbf9, #f7fbf9 10px, #f2f7f5 10px, #f2f7f5 20px); }
+
+.slot-url { display: flex; gap: 6px; width: 100%; max-width: 420px; }
+.slot-url input {
+  flex: 1; min-width: 0; height: 32px; padding: 0 10px;
+  border: 1px solid #c6d8d3; border-radius: 6px; background: #fff;
+  font-family: 'Mulish', sans-serif; font-size: 12px; color: #12313a;
+}
+.slot-url input:focus { outline: 2px solid #9ccfc6; outline-offset: 1px; border-color: #0d5f63; }
+.slot-url button {
+  flex: none; height: 32px; padding: 0 14px;
+  border: 0; border-radius: 6px; background: #0d5f63; color: #fff;
+  font-family: 'Mada', sans-serif; font-size: 12px; font-weight: 700;
+}
+.slot-url button:hover { background: #0a4c50; }
+.slot-reset {
+  border: 0; background: none; color: #6b8781;
+  font-family: 'Mada', sans-serif; font-size: 11px; text-decoration: underline;
+}
+.slot-reset:hover { color: #0d5f63; }
+
+/* ===== Screen-only tool for swapping a figure's image ===== */
+.figure-tools { display: flex; justify-content: flex-end; padding-top: 5px; }
+/* The empty-slot box is screen-only, so the whole figure block collapses there too. */
+@media print {
+  .book-figure.figure-slot { display: none !important; }
+}
+.figure-link-btn {
+  border: 1px dashed #c6d8d3; border-radius: 999px; padding: 3px 11px;
+  background: #f4faf8; color: #5b7c78;
+  font-family: 'Mada', sans-serif; font-size: 10.5px; font-weight: 600;
+  opacity: 0; transition: opacity .18s, color .18s, border-color .18s;
+}
+.book-figure:hover .figure-link-btn,
+.figure-link-btn:focus-visible { opacity: 1; }
+.figure-link-btn:hover { color: #0d5f63; border-color: #0d5f63; }
+.figure-tools .slot-url { max-width: 100%; }
+
+/*
+  A figure with no image is not part of the booklet.
+  Removing it from the flow (not just visually) means it takes no space at all in the PDF.
+*/
+@media print {
+  .figure-slot { display: none !important; visibility: hidden !important; width: 0 !important; height: 0 !important; margin: 0 !important; padding: 0 !important; overflow: hidden !important; }
+  .figure-tools { display: none !important; }
+}

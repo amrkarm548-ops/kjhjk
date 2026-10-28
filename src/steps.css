@@ -1,0 +1,254 @@
+/*
+  Unified vertical timeline layout for procedure steps.
+  No side-by-side columns! Information flows downwards in a natural, linear reading order.
+  This removes cognitive load, prevents eye-strain, and is much faster to study.
+*/
+
+.procedure-step {
+  border: 1px solid #cfe1db;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(13, 95, 99, 0.04);
+}
+
+/* Thin elegant header */
+.step-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: #0f5f63;
+  color: #fff;
+}
+.step-badge {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #fff;
+  color: #0f5f63;
+  font-family: 'Caveat', 'Patrick Hand', cursive;
+  font-size: 13.5px;
+  font-weight: 700;
+}
+.step-head-en {
+  font-family: 'Short Stack', 'Patrick Hand', cursive;
+  font-size: 10.5px;
+  letter-spacing: .08em;
+}
+.step-head-ar {
+  margin-left: auto;
+  font-family: 'Lemonada', 'Mada', sans-serif;
+  font-size: 11.5px;
+}
+
+/* Body content padding */
+.step-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fffdfc;
+}
+
+/* Base style for dots */
+.section-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: none;
+  margin-top: 6px;
+}
+
+/* --- 1. The Action Row --- */
+.step-action-row {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+}
+.action-dot {
+  background: #14757c;
+}
+.action-text {
+  flex: 1;
+}
+.action-text .en-text {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #12313a;
+  margin: 0 0 4px;
+}
+.action-text .ar-text {
+  font-family: 'Mada', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.75;
+  color: #2b454e;
+  margin: 0;
+  text-align: right;
+}
+
+/* --- 2. Checklist Items --- */
+.step-items {
+  list-style: none;
+  margin: 2px 0 2px 20px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.step-items li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #f4faf8;
+  border: 1px solid #e1eee9;
+  border-radius: 8px;
+}
+.step-check {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #14757c;
+  border-radius: 4px;
+  background: #fff;
+  margin-top: 3px;
+  flex: none;
+}
+.item-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.item-en {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 14.5px;
+  color: #12313a;
+  line-height: 1.4;
+}
+.item-ar {
+  font-family: 'Mada', sans-serif;
+  font-size: 13px;
+  color: #4a6863;
+  line-height: 1.6;
+  text-align: right;
+}
+
+/* --- 3. The Rationale Row --- */
+.step-rationale-row {
+  margin-left: 19px;
+  border-left: 2px solid #e2ece8;
+  padding-left: 12px;
+}
+.rationale-card {
+  background: #f7faf9;
+  border: 1px solid #e9f2ee;
+  border-radius: 9px;
+  padding: 10px 14px;
+}
+.rationale-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #0d5f63;
+  font-family: 'Short Stack', cursive;
+  font-size: 10px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.rationale-dot {
+  background: #0d5f63;
+  margin-top: 0;
+}
+.rationale-text .en-text {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #24444c;
+  margin: 0 0 6px;
+}
+.rationale-text .ar-text {
+  font-family: 'Mada', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: #556c70;
+  margin: 0;
+  text-align: right;
+}
+
+/* --- 4. The Consequence Row (If Wrong) --- */
+.step-consequence-row {
+  margin-left: 19px;
+}
+.consequence-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #fdeeec;
+  border: 1px solid #f9deda;
+  border-right: 3.5px solid #c0392b;
+  border-radius: 9px;
+  padding: 10px 14px;
+}
+.consequence-badge {
+  align-self: flex-start;
+  padding: 1px 11px;
+  border-radius: 999px;
+  background: #8f2f2f;
+  color: #fff;
+  font-family: 'Mada', sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+.consequence-card .ar-text {
+  margin: 0;
+  color: #7a1f12;
+  font-family: 'Mada', sans-serif;
+  font-size: 13.4px;
+  line-height: 1.8;
+  text-align: right;
+}
+
+/* --- Theme Variants for Critical Steps --- */
+.procedure-step.tone-danger {
+  border-color: #ecd9d9;
+  box-shadow: 0 4px 12px rgba(192, 57, 43, 0.04);
+}
+.procedure-step.tone-danger .step-head {
+  background: #8f2f2f;
+}
+.procedure-step.tone-danger .step-badge {
+  color: #8f2f2f;
+}
+.procedure-step.tone-danger .step-items li {
+  background: #fdf6f5;
+  border-color: #ecd9d9;
+}
+.procedure-step.tone-danger .step-check {
+  border-color: #c0392b;
+}
+
+/* --- Theme Variants for Special Level 2 Steps (Infusion Rate) --- */
+.procedure-step.tone-level2 {
+  border-color: #f1ded0;
+}
+.procedure-step.tone-level2 .step-head {
+  background: #c2622a;
+}
+.procedure-step.tone-level2 .step-badge {
+  color: #c2622a;
+}
+
+@media print {
+  .step-head, .step-badge, .step-items li, .step-check,
+  .rationale-card, .consequence-card, .consequence-badge {
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+}

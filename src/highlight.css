@@ -1,0 +1,67 @@
+/*
+  Colour language for study text.
+  One colour = one kind of information. The reader learns it once (legend on the cover)
+  and then scans every page by colour.
+
+  Teal    key terms         — the vocabulary the exam asks about
+  Amber   numbers & times   — every threshold you must memorise
+  Plum    levels & tags     — the triage classifications themselves
+  Red     danger            — warnings, failures, life-threatening words
+  Green   positive          — good outcomes, correct practice
+  Slate   acronyms          — ED, ESI, ATS, CTAS …
+*/
+
+.hl {
+  display: inline;
+  padding: 0 .22em;
+  margin: 0 .02em;
+  border-radius: .32em;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Key terms — teal underline-highlight */
+.hl-key { background: linear-gradient(transparent 55%, #cfeee6 55%); color: #0b5e62; font-weight: 700; }
+
+/* Numbers & times — amber pill */
+.hl-number { background: #fdefc9; color: #7a4f06; font-weight: 700; white-space: nowrap; }
+
+/* Levels & tags — plum */
+.hl-level { background: #efe2f4; color: #5e2b73; font-weight: 700; }
+
+/* Danger — red */
+.hl-danger { background: #fde1dd; color: #9c2317; font-weight: 700; }
+
+/* Positive — green */
+.hl-good { background: #ddf2e2; color: #1f6b3d; font-weight: 700; }
+
+/* Acronyms — slate monospace-ish feel */
+.hl-acronym { background: #e6ebf2; color: #2e3f55; font-weight: 700; letter-spacing: .03em; }
+
+/* Inside Arabic text keep marks a touch calmer so the line stays readable */
+/* :dir() follows the nearest dir attribute, so English text inside the RTL app is not affected. */
+.hl:dir(rtl) { font-weight: 600; padding: 0 .18em; }
+.hl-key:dir(rtl) { background: linear-gradient(transparent 60%, #cfeee6 60%); }
+
+/* Heads that are already coloured — do not double paint */
+.term-head .hl, .kv-caption .hl, .step-head .hl, .data-table .first-cell .hl { background: transparent; color: inherit; padding: 0; }
+
+/* Cover legend */
+.colour-key { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px 14px; margin-top: 18px; }
+.colour-key div { display: flex; align-items: center; gap: 8px; font-family: 'Mada', sans-serif; font-size: 11.5px; color: #4a6361; }
+.colour-key i { display: inline-block; width: 26px; height: 13px; border-radius: 4px; flex: none; }
+.colour-key .k-key { background: #cfeee6; border-bottom: 2px solid #0b5e62; }
+.colour-key .k-number { background: #fdefc9; }
+.colour-key .k-level { background: #efe2f4; }
+.colour-key .k-danger { background: #fde1dd; }
+.colour-key .k-good { background: #ddf2e2; }
+.colour-key .k-acronym { background: #e6ebf2; }
+
+/* Print: keep the colours */
+@media print {
+  .hl { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}

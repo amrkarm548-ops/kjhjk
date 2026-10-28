@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" width="1100" height="560" role="img" aria-label="Apoptosis versus Necrosis comparison">
+<rect width="1100" height="560" fill="#f8fbfa"/>
+<g font-family="Mulish,Arial,sans-serif">
+<text x="550" y="44" text-anchor="middle" font-size="24" font-weight="800" fill="#0d5f63">CELL DEATH: APOPTOSIS vs NECROSIS</text>
+<text x="550" y="72" text-anchor="middle" font-size="14.5" fill="#5b7c78">Programmed clean suicide versus violent pathological death in living tissue</text>
+
+<rect x="50" y="100" width="490" height="400" rx="14" fill="#fff" stroke="#2e7d4f" stroke-width="3"/>
+<rect x="50" y="100" width="490" height="50" rx="14" fill="#2e7d4f"/>
+<rect x="50" y="134" width="490" height="16" fill="#2e7d4f"/>
+<text x="295" y="133" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">APOPTOSIS - MOUT KHULWI MUBRAMAJ</text>
+
+<g stroke="#2e7d4f" stroke-width="2" fill="#e8f5e9">
+<circle cx="150" cy="215" r="34"/>
+</g>
+<text x="150" y="262" text-anchor="middle" font-size="11.5" fill="#2e7d4f">normal</text>
+
+<g stroke="#2e7d4f" stroke-width="2" fill="#dcefe4">
+<ellipse cx="290" cy="210" rx="26" ry="30"/>
+</g>
+<circle cx="290" cy="204" r="11" fill="#1b5e20"/>
+<text x="290" y="262" text-anchor="middle" font-size="11.5" fill="#2e7d4f">shrink + condense</text>
+
+<g stroke="#2e7d4f" stroke-width="2" fill="#dcefe4">
+<circle cx="420" cy="205" r="15"/>
+<circle cx="455" cy="215" r="13"/>
+<circle cx="435" cy="245" r="14"/>
+</g>
+<g fill="#1b5e20">
+<circle cx="420" cy="205" r="6"/><circle cx="455" cy="215" r="5"/><circle cx="435" cy="245" r="6"/>
+</g>
+<text x="440" y="276" text-anchor="middle" font-size="11.5" fill="#2e7d4f">apoptotic bodies</text>
+
+<text x="295" y="318" text-anchor="middle" font-size="12.5" font-weight="800" fill="#276a44">Cell activates its OWN enzymes</text>
+<text x="295" y="340" text-anchor="middle" font-size="12.5" fill="#2b4a50">degrades its nuclear DNA and proteins</text>
+
+<g font-size="13" fill="#2b4a50">
+<text x="78" y="372" font-weight="800" fill="#276a44">Energy-dependent (ATP required)</text>
+<text x="78" y="400" font-weight="800" fill="#276a44">Cell membrane stays intact</text>
+<text x="78" y="428" font-weight="800" fill="#276a44">NO inflammatory reaction</text>
+<text x="78" y="456" font-weight="800" fill="#276a44">Can be physiological or pathological</text>
+</g>
+<rect x="78" y="470" width="434" height="22" rx="6" fill="#eaf4f1"/>
+<text x="295" y="486" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0d5f63">انتحار خلوي مبرمج ونظيف بدون أي التهاب</text>
+
+<rect x="560" y="100" width="490" height="400" rx="14" fill="#fff" stroke="#c0392b" stroke-width="3"/>
+<rect x="560" y="100" width="490" height="50" rx="14" fill="#c0392b"/>
+<rect x="560" y="134" width="490" height="16" fill="#c0392b"/>
+<text x="805" y="133" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">NECROSIS - AL NAKHIR</text>
+
+<g stroke="#c0392b" stroke-width="2" fill="#fdeceb">
+<ellipse cx="700" cy="215" rx="42" ry="38"/>
+</g>
+<circle cx="700" cy="212" r="13" fill="#7a1f12"/>
+<g fill="#e07b39">
+<circle cx="768" cy="196" r="9"/><circle cx="788" cy="222" r="11"/><circle cx="752" cy="244" r="8"/>
+</g>
+<text x="805" y="276" text-anchor="middle" font-size="11.5" fill="#9c2317">membrane rupture + spillage</text>
+
+<text x="805" y="318" text-anchor="middle" font-size="12.5" font-weight="800" fill="#9c2317">Cell bursts and contents spill</text>
+<text x="805" y="340" text-anchor="middle" font-size="12.5" fill="#2b4a50">inflammatory response around it</text>
+
+<g font-size="13" fill="#2b4a50">
+<text x="588" y="372" font-weight="800" fill="#9c2317">Severe or persistent injury</text>
+<text x="588" y="400" font-weight="800" fill="#9c2317">Nuclear damage (pyknosis, karyorrhexis, karyolysis)</text>
+<text x="588" y="428" font-weight="800" fill="#c0392b">ALWAYS pathological (never normal)</text>
+<text x="588" y="456" font-weight="800" fill="#9c2317">Local death of a cell group in a LIVING body</text>
+</g>
+<rect x="588" y="470" width="434" height="22" rx="6" fill="#fdeceb"/>
+<text x="805" y="486" text-anchor="middle" font-size="11.5" font-weight="700" fill="#8a1f14">موت موضعي لخلايا داخل كائن حي (يختلف عن Somatic death)</text>
+
+<rect x="50" y="514" width="1000" height="34" rx="8" fill="#eaf4f1"/>
+<text x="550" y="536" text-anchor="middle" font-size="12.5" font-weight="700" fill="#0d5f63">Reversible injury = cytoplasm only, intact nucleus · Irreversible = nuclear destruction, then Necrosis or Apoptosis</text>
+</g></svg>

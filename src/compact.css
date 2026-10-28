@@ -1,0 +1,41 @@
+/* Compact pass: smaller gaps between blocks so pages fill up instead of leaving blanks. */
+.content-block { padding-bottom: 10px !important; }
+.entry-block { padding-bottom: 8px !important; }
+.entry-block.step-main { padding-bottom: 5px !important; }
+.entry-block.step-tail { padding-top: 0 !important; }
+.section-block { margin: 12px 0 8px !important; padding: 12px 0 10px !important; }
+.chapter-block { min-height: 0 !important; padding: 8px 0 14px !important; }
+.section-number { font-size: 52px !important; }
+.chapter-watermark { font-size: 110px !important; }
+
+/* Split procedure steps: the two halves merge into one card on the same page. */
+.procedure-step { margin-bottom: 10px !important; }
+.step-split-main { margin-bottom: 0 !important; border-bottom: 0 !important; border-radius: 12px 12px 0 0 !important; }
+.step-split-main .step-content { padding-bottom: 10px !important; }
+.step-split-tail { border-radius: 0 0 12px 12px !important; }
+.step-split-tail .step-content { padding-top: 10px !important; }
+.step-continued { display: block; visibility: hidden; min-height: 24px; padding: 6px 14px 0; }
+.step-continued span {
+  display: inline-block; padding: 1px 10px; border-radius: 999px;
+  background: #e6f1ef; color: #0d5f63;
+  font-family: 'Mada', sans-serif; font-size: 10px; font-weight: 700;
+}
+/* Reveal the "continued" badge only when the tail opens a page (space is always reserved so measures stay exact). */
+.page-body > .entry-block.step-tail:first-child .step-continued { visibility: visible !important; }
+.page-body > .entry-block.step-tail:first-child .step-split-tail { border-radius: 12px !important; }
+
+/* Figures: cap height so one diagram never eats most of a page. */
+.book-figure.figure-auto img { max-height: 340px !important; }
+.figure-row { padding: 2px 0 4px !important; }
+.book-figure figcaption { padding-top: 5px !important; }
+.figure-tools { padding-top: 3px !important; }
+
+/* Tighter cards and tables. */
+.step-content { padding: 12px !important; gap: 8px !important; }
+.trilingual-note { margin-bottom: 0 !important; }
+.term-body { padding: 8px !important; }
+.data-table td { padding: 9px 13px !important; }
+.kv-table td { padding: 7px 13px !important; }
+.seq-item { padding: 7px 11px 8px !important; }
+.subheading-block { margin: 4px 0 0 !important; }
+.chip-grid { gap: 6px !important; }

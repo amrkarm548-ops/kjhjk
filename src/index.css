@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@import "./fonts.css";
+@import "./book.css";
+@import "./theme-extra.css";
+@import "./handwriting-fonts.css";
+@import "./arabic-fonts.css";
+@import "./highlight.css";
+@import "./enumerated.css";
+@import "./pagination.css";
+@import "./steps.css";
+@import "./figures.css";
+@import "./compact.css";

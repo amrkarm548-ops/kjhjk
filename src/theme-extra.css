@@ -1,0 +1,52 @@
+/* Triage lecture: colour-coded level tables, wide diagrams, extra tag tones */
+
+/* ===== Wide diagram (flows across the whole measure, never cropped) ===== */
+.figure-row.figure-tall { display: block; padding: 4px 0 10px; }
+.figure-tall .figure-wide { width: 100%; margin: 0; }
+.figure-tall .figure-wide figcaption { padding-top: 8px; }
+
+/* ===== Data table with colour-coded rows ===== */
+.data-wrap { border: 1px solid #d3e2dc; border-radius: 9px; overflow: hidden; }
+.data-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.data-table th {
+  padding: 10px 13px; background: #eaf3ef; color: #0d5f63;
+  font: 700 10.5px 'Mulish', sans-serif; letter-spacing: .05em; text-align: left;
+  vertical-align: bottom; border-bottom: 1px solid #d3e2dc;
+}
+.data-table th span { display: block; margin-top: 2px; color: #4a6863; font: 600 10.5px 'Tajawal', sans-serif; letter-spacing: 0; }
+.data-table td {
+  padding: 12px 13px; border-bottom: 1px solid #e4ede9; vertical-align: middle;
+  color: #1b3b41; font: 600 12.5px 'Mulish', sans-serif;
+}
+.data-table tbody tr:last-child td { border-bottom: 0; }
+.data-table tbody tr:nth-child(even) td { background: #f7fbf9; }
+.data-table .first-cell { border-left: 6px solid #b9cfc9; color: #0d5f63; font-weight: 800; }
+
+/* ===== The triage colour language ===== */
+.data-table tr.tone-level1 .first-cell { border-left-color: #c0392b; color: #a5301f; }
+.data-table tr.tone-level2 .first-cell { border-left-color: #e07b39; color: #b45a22; }
+.data-table tr.tone-level3 .first-cell { border-left-color: #e8a33d; color: #97682a; }
+.data-table tr.tone-level4 .first-cell { border-left-color: #3d8fb0; color: #2b7290; }
+.data-table tr.tone-level5 .first-cell { border-left-color: #2e7d4f; color: #276a44; }
+
+.term-card.tone-level1 .term-head { background: #c0392b; }
+.term-card.tone-level2 .term-head { background: #c2622a; }
+.term-card.tone-level3 .term-head { background: #e8a33d; color: #3a2b0d; }
+.term-card.tone-level4 .term-head { background: #2b7290; }
+.term-card.tone-level5 .term-head { background: #2e7d4f; }
+.term-card.tone-black .term-head { background: #2b2b2b; }
+.term-card.tone-level3 .term-head .ar { color: #4a3512; }
+
+.term-card.tone-level1 { border-color: #e6c3bd; }
+.term-card.tone-level2 { border-color: #ecd2c1; }
+.term-card.tone-level3 { border-color: #ecd9b4; }
+.term-card.tone-level4 { border-color: #c5dae3; }
+.term-card.tone-level5 { border-color: #c6ddce; }
+.term-card.tone-black { border-color: #cfcfcf; }
+
+.term-card.tone-level1 .term-body { background: #fdf6f5; }
+.term-card.tone-level2 .term-body { background: #fdf8f4; }
+.term-card.tone-level3 .term-body { background: #fdfaf1; }
+.term-card.tone-level4 .term-body { background: #f4f9fb; }
+.term-card.tone-level5 .term-body { background: #f4faf6; }
+.term-card.tone-black .term-body { background: #f7f7f7; }

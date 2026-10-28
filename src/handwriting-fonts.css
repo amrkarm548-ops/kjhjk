@@ -1,0 +1,115 @@
+/*
+  Handwriting typefaces — loaded via <link> in index.html.
+  Roles
+  ─────
+  Caveat              → display: cover, chapter titles, giant section numbers (expressive, flowing)
+  Architects Daughter → headings & labels: section titles, sub-headings, table captions, part labels
+  Patrick Hand        → the English study text: notes, steps, chips, table cells (clean, friendly)
+  Short Stack         → tiny chrome: eyebrows, footers, page headers, badges (quirky but legible)
+  Arabic text keeps Tajawal / Amiri (none of these faces contain Arabic glyphs)
+*/
+
+/* ===== Display: Caveat ===== */
+.cover-main h1,
+.chapter-block h2,
+.section-number,
+.chapter-watermark,
+.cover-o2,
+.step-badge,
+.seq-num,
+.note-num { font-family: 'Caveat', 'Patrick Hand', cursive; }
+
+.cover-main h1 { font-size: 92px; font-weight: 700; line-height: .96; letter-spacing: -.01em; }
+.cover-main h1 em { font-weight: 500; font-style: normal; }
+.chapter-block h2 { font-size: 54px; font-weight: 700; line-height: 1; letter-spacing: 0; }
+.section-number { font-size: 76px; font-weight: 700; letter-spacing: 0; line-height: .9; }
+.chapter-watermark { font-size: 180px; font-weight: 700; letter-spacing: 0; }
+.cover-o2 { font-size: 230px; font-weight: 700; letter-spacing: 0; }
+.seq-num, .note-num { font-weight: 700; }
+.seq-num { font-size: 15px; }
+.note-num { font-size: 13px; }
+.step-badge { font-size: 16px; font-weight: 700; }
+
+/* ===== Headings & labels: Architects Daughter ===== */
+.section-titles h3,
+.subheading-block h4,
+.kv-caption > span:first-child,
+.term-head strong,
+.data-table th,
+.part-label,
+.cover-list-row > span:nth-child(2),
+.chip strong,
+.kv-label strong,
+.toolbar-heading strong { font-family: 'Architects Daughter', 'Patrick Hand', cursive; letter-spacing: 0; }
+
+.section-titles h3 { font-size: 24px; font-weight: 400; line-height: 1.2; }
+.subheading-block h4 { font-size: 19px; font-weight: 400; }
+.term-head strong { font-size: 15px; font-weight: 400; }
+.kv-caption > span:first-child { font-size: 12.5px; font-weight: 400; letter-spacing: .03em; }
+.data-table th { font-size: 12.5px; font-weight: 400; letter-spacing: .02em; }
+.chip strong { font-size: 13px; font-weight: 400; }
+.kv-label strong { font-size: 14px; font-weight: 400; }
+.part-label { font-size: 11px; font-weight: 400; letter-spacing: .04em; }
+
+/* ===== Study text: Patrick Hand ===== */
+.english-line,
+.seq-en,
+.data-table td,
+.kv-value b,
+.legend b.lg-en,
+.cover-key b,
+.print-button, .download-button, .slots-button { font-family: 'Patrick Hand', 'Architects Daughter', cursive; letter-spacing: 0; }
+
+.english-line { font-size: 16px; font-weight: 400; line-height: 1.6; }
+.compact-note .english-line { font-size: 15.4px; }
+.seq-en { font-size: 15.4px; font-weight: 400; line-height: 1.6; }
+.data-table td { font-size: 14.5px; font-weight: 400; }
+.data-table .first-cell { font-weight: 400; }
+.kv-value b { font-size: 19px; font-weight: 400; }
+.term-body .english-line { font-family: 'Patrick Hand', 'Architects Daughter', cursive; font-size: 15.2px; font-weight: 400; font-style: normal; }
+.nested-note .english-line { font-size: 15px; }
+.plain-note .english-line { font-style: normal; font-weight: 400; }
+
+/* ===== Tiny chrome: Short Stack ===== */
+.cover-top,
+.cover-edition,
+.cover-small,
+.cover-bottom-heading > span:first-child,
+.cover-footer > span:first-child,
+.page-header,
+.footer-caption,
+.footer-number,
+.chapter-kicker,
+.sidebar-eyebrow,
+.toolbar-overline,
+.chapter-link-number,
+.chapter-link small,
+.sidebar-section-list button span,
+.page-control,
+.step-head-en,
+.step-overline,
+.cover-list-number,
+.table-category,
+.slot-badge,
+.slot-path,
+.progress-caption span:last-child { font-family: 'Short Stack', 'Patrick Hand', cursive; letter-spacing: .02em; }
+
+.cover-top { font-size: 11.5px; letter-spacing: .12em; }
+.page-header { font-size: 10px; letter-spacing: .08em; }
+.footer-caption { font-size: 9.5px; letter-spacing: .08em; }
+.footer-number { font-size: 14px; }
+.chapter-kicker { font-size: 11px; letter-spacing: .09em; }
+.cover-small { font-size: 11px; letter-spacing: .16em; }
+.cover-list-number { font-size: 13px; }
+
+/* Readability safety: handwriting faces need a touch more leading and darker ink */
+.english-line, .seq-en, .data-table td { color: #10292f; }
+.section-titles h3, .subheading-block h4 { color: #0e2c34; }
+.term-head strong { line-height: 1.35; }
+.chip strong { line-height: 1.4; }
+
+/* Arabic always stays on its own faces — handwriting fonts have no Arabic glyphs */
+[dir="rtl"], .ar, [lang^="ar"] { font-family: 'Tajawal', 'Amiri', sans-serif; }
+.language-label, .seq-eg-tag { font-family: 'Tajawal', sans-serif; letter-spacing: 0; }
+.cover-brand, .sidebar-brand, .chapter-block p, .section-titles p, .sidebar-top h2,
+.cover-arabic, .term-head .ar, .kv-caption .ar, .step-head-ar, .end-badge { font-family: 'Amiri', 'Tajawal', serif; }

@@ -1,0 +1,32 @@
+/*
+  Pagination support.
+  The hidden measuring page is a real .paper.reading-paper > .page-body living inside .workspace,
+  so it receives exactly the same CSS as the visible pages.
+*/
+
+/*
+  Zero-size, clipped wrapper: the page inside keeps its full 794px width and natural height for measuring,
+  but contributes nothing to scrolling. (A large negative `left` would add a horizontal scrollbar in an RTL document.)
+*/
+.measure-layer {
+  position: absolute; top: 0; left: 0;
+  width: 0 !important; height: 0; overflow: hidden;
+  visibility: hidden; pointer-events: none; z-index: -1;
+}
+.measure-layer .measure-paper {
+  height: auto !important; min-height: 0 !important;
+  box-shadow: none !important; animation: none !important;
+}
+.measure-layer .measure-body { flex: none !important; overflow: visible !important; }
+
+/*
+  The first block of every page starts flush with the top of the page body,
+  so a block's measured height is the same whether it opens a page or follows another block.
+*/
+.page-body > [data-block-id]:first-child { margin-top: 0 !important; }
+
+/* Blocks contain their children's margins, so nothing leaks out across a page boundary. */
+.page-body > .entry-block,
+.page-body > .chapter-block { display: flow-root; }
+
+/* Figure sizing lives in figures.css */

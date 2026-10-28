@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" width="1100" height="700" role="img" aria-label="Metastatic Calcification causes, target sites and microscopic picture">
+<rect width="1100" height="700" fill="#f8fbfa"/>
+<g font-family="Mulish,Arial,sans-serif">
+<text x="550" y="44" text-anchor="middle" font-size="24" font-weight="800" fill="#0d5f63">METASTATIC CALCIFICATION</text>
+<text x="550" y="72" text-anchor="middle" font-size="14.5" fill="#5b7c78">Calcium salts deposited in NORMAL tissues because blood calcium is high (Hypercalcemia)</text>
+
+<rect x="300" y="98" width="500" height="52" rx="12" fill="#8a5a1c"/>
+<text x="550" y="122" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">HYPERCALCEMIA ↑↑ (increased serum calcium)</text>
+<text x="550" y="142" text-anchor="middle" font-size="12" fill="#fdf8e8">normal healthy tissue + high blood calcium = calcification</text>
+
+<g stroke="#8fa8a4" stroke-width="3" fill="none">
+<path d="M550 150 L550 176"/>
+<path d="M550 176 L250 176 M550 176 L850 176 M250 176 L250 202 M850 176 L850 202"/>
+</g>
+<polygon points="250,210 242,196 258,196" fill="#8fa8a4"/>
+<polygon points="850,210 842,196 858,196" fill="#8fa8a4"/>
+
+<!-- CAUSES -->
+<rect x="40" y="210" width="420" height="420" rx="14" fill="#fff" stroke="#c0392b" stroke-width="2.5"/>
+<rect x="40" y="210" width="420" height="46" rx="14" fill="#c0392b"/>
+<rect x="40" y="242" width="420" height="14" fill="#c0392b"/>
+<text x="250" y="240" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">CAUSES OF HYPERCALCEMIA</text>
+
+<text x="60" y="284" font-size="14" font-weight="800" fill="#9c2317">1 · ↑ Intestinal calcium absorption</text>
+<g font-size="12" fill="#2b4a50">
+<text x="80" y="308">• Hypervitaminosis D</text>
+<text x="80" y="330">• Excess milk intake for peptic ulcer</text>
+<text x="110" y="352" fill="#8a1f14">(Milk-alkali syndrome)</text>
+</g>
+
+<text x="60" y="392" font-size="14" font-weight="800" fill="#9c2317">2 · ↑ Bone calcium mobilization</text>
+<g font-size="12" fill="#2b4a50">
+<text x="80" y="416">• Hyperparathyroidism (PTH ↑)</text>
+<text x="80" y="438">• Prolonged immobilization</text>
+<text x="80" y="460">• Destructive bone diseases (Paget's)</text>
+<text x="80" y="482">• Malignant bone tumors (Multiple myeloma)</text>
+<text x="80" y="504">• Diffuse skeletal metastasis</text>
+</g>
+
+<text x="60" y="544" font-size="14" font-weight="800" fill="#9c2317">3 · Other causes</text>
+<g font-size="12" fill="#2b4a50">
+<text x="80" y="568">• Sarcoidosis</text>
+<text x="80" y="590">• Renal failure (phosphate retention →</text>
+<text x="104" y="612">secondary hyperparathyroidism)</text>
+</g>
+
+<!-- SITES -->
+<rect x="500" y="210" width="560" height="300" rx="14" fill="#fff" stroke="#0d5f63" stroke-width="2.5"/>
+<rect x="500" y="210" width="560" height="46" rx="14" fill="#0d5f63"/>
+<rect x="500" y="242" width="560" height="14" fill="#0d5f63"/>
+<text x="780" y="240" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">SITES OF DEPOSITION — 4 TARGET SITES</text>
+<text x="780" y="286" text-anchor="middle" font-size="12.5" fill="#5b7c78">All are alkaline (basic) mediums → favor calcium precipitation</text>
+
+<g stroke="#0d5f63" stroke-width="2.5" fill="#eef6f3">
+<rect x="526" y="304" width="240" height="56" rx="9"/>
+<rect x="794" y="304" width="240" height="56" rx="9"/>
+<rect x="526" y="372" width="240" height="56" rx="9"/>
+<rect x="794" y="372" width="240" height="56" rx="9"/>
+</g>
+<g font-size="13" font-weight="800" fill="#0d5f63">
+<text x="646" y="328" text-anchor="middle">1 · Renal tubules</text>
+<text x="914" y="328" text-anchor="middle">2 · Gastric mucosa</text>
+<text x="646" y="396" text-anchor="middle">3 · Wall of lung alveoli</text>
+<text x="914" y="396" text-anchor="middle">4 · Media of blood vessels</text>
+</g>
+<g font-size="11" fill="#5b7c78" text-anchor="middle">
+<text x="646" y="348">تسمى Nephrocalcinosis</text>
+<text x="914" y="348">بطانة المعدة</text>
+<text x="646" y="416">جدران الحويصلات الرئوية</text>
+<text x="914" y="416">الطبقة الوسطى للأوعية</text>
+</g>
+
+<rect x="526" y="442" width="508" height="52" rx="9" fill="#fdf9ef" stroke="#d9c489"/>
+<text x="780" y="464" text-anchor="middle" font-size="12.5" font-weight="800" fill="#8a5f12">⚠️ MEMORISE these 4 sites exactly</text>
+<text x="780" y="484" text-anchor="middle" font-size="11.5" fill="#8a5f12">احفظ الأماكن الأربعة دي بالترتيب</text>
+
+<!-- MICROSCOPIC PICTURE -->
+<rect x="40" y="636" width="1020" height="46" rx="10" fill="#fff" stroke="#6a1b9a" stroke-width="2.5"/>
+<text x="550" y="655" text-anchor="middle" font-size="13.5" font-weight="800" fill="#6a1b9a">MICROSCOPIC PICTURE: Basophilic, amorphous, granular or clumped calcium deposits</text>
+<text x="550" y="674" text-anchor="middle" font-size="12" fill="#4a148c">الصورة المجهرية: ترسبات قاعدية (زارقة/بنفسجية) غير منتظمة أو حبيبية مع صبغة H&amp;E</text>
+</g></svg>

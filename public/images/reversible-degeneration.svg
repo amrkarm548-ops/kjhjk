@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 620" width="1100" height="620" role="img" aria-label="Three types of reversible cell degeneration">
+<rect width="1100" height="620" fill="#f8fbfa"/>
+<g font-family="Mulish,Arial,sans-serif">
+<text x="550" y="44" text-anchor="middle" font-size="24" font-weight="800" fill="#0d5f63">REVERSIBLE CELL INJURY — DEGENERATION</text>
+<text x="550" y="72" text-anchor="middle" font-size="14.5" fill="#5b7c78">Mild, short-duration injury · Nucleus intact · Only cytoplasm affected · Fully reversible</text>
+
+<rect x="40" y="105" width="200" height="330" rx="14" fill="#fff" stroke="#0d5f63" stroke-width="2.5"/>
+<rect x="40" y="105" width="200" height="42" rx="14" fill="#0d5f63"/>
+<rect x="40" y="133" width="200" height="14" fill="#0d5f63"/>
+<text x="140" y="133" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">NORMAL CELL</text>
+<ellipse cx="140" cy="270" rx="52" ry="76" fill="#e3f2fd" stroke="#1976d2" stroke-width="2.5"/>
+<circle cx="140" cy="262" r="20" fill="#1565c0"/>
+<text x="140" y="356" text-anchor="middle" font-size="11.5" fill="#1565c0">Nucleus intact</text>
+<text x="140" y="376" text-anchor="middle" font-size="11.5" fill="#1565c0">Cytoplasm clear</text>
+<text x="140" y="412" text-anchor="middle" font-size="12" font-weight="800" fill="#0d5f63">Reference cell</text>
+
+<rect x="268" y="105" width="265" height="330" rx="14" fill="#fff" stroke="#3d8fb0" stroke-width="2.5"/>
+<rect x="268" y="105" width="265" height="42" rx="14" fill="#3d8fb0"/>
+<rect x="268" y="133" width="265" height="14" fill="#3d8fb0"/>
+<text x="400" y="133" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">1 · CLOUDY SWELLING</text>
+<ellipse cx="400" cy="276" rx="62" ry="88" fill="#dceefb" stroke="#3d8fb0" stroke-width="2.5"/>
+<g fill="#7fb2d0" opacity="0.85">
+<circle cx="368" cy="250" r="4"/><circle cx="392" cy="232" r="4"/><circle cx="422" cy="248" r="4"/>
+<circle cx="352" cy="286" r="4"/><circle cx="438" cy="282" r="4"/><circle cx="378" cy="316" r="4"/>
+<circle cx="420" cy="322" r="4"/><circle cx="404" cy="300" r="4"/><circle cx="360" cy="322" r="4"/>
+</g>
+<circle cx="400" cy="266" r="19" fill="#1565c0"/>
+<text x="400" y="414" text-anchor="middle" font-size="13" font-weight="800" fill="#2b7290">Water influx (Na+/K+ pump failure)</text>
+<text x="400" y="436" text-anchor="middle" font-size="11.5" fill="#5b7c78">Pale hazy granular cytoplasm</text>
+<text x="400" y="456" text-anchor="middle" font-size="11.5" font-weight="700" fill="#9c2317">Earliest, mildest form</text>
+
+<rect x="560" y="105" width="265" height="330" rx="14" fill="#fff" stroke="#8a5a1c" stroke-width="2.5"/>
+<rect x="560" y="105" width="265" height="42" rx="14" fill="#8a5a1c"/>
+<rect x="560" y="133" width="265" height="14" fill="#8a5a1c"/>
+<text x="692" y="133" text-anchor="middle" font-size="15" font-weight="800" fill="#fff">2 · HYDROPIC SWELLING</text>
+<ellipse cx="692" cy="280" rx="74" ry="96" fill="#fdf8e8" stroke="#b8894a" stroke-width="2.5"/>
+<g fill="#fffef5" stroke="#c9a227" stroke-width="2">
+<ellipse cx="662" cy="244" rx="21" ry="16"/>
+<ellipse cx="726" cy="232" rx="17" ry="13"/>
+<ellipse cx="728" cy="300" rx="22" ry="18"/>
+<ellipse cx="656" cy="318" rx="15" ry="12"/>
+</g>
+<circle cx="692" cy="278" r="18" fill="#8a5a1c"/>
+<text x="692" y="414" text-anchor="middle" font-size="13" font-weight="800" fill="#8a5a1c">Large vacuoles displace nucleus</text>
+<text x="692" y="436" text-anchor="middle" font-size="11.5" fill="#5b7c78">Advanced cloudy swelling</text>
+<text x="692" y="456" text-anchor="middle" font-size="11.5" font-weight="700" fill="#8a5a1c">Still reversible</text>
+
+<rect x="852" y="105" width="208" height="330" rx="14" fill="#fff" stroke="#c0392b" stroke-width="2.5"/>
+<rect x="852" y="105" width="208" height="42" rx="14" fill="#c0392b"/>
+<rect x="852" y="133" width="208" height="14" fill="#c0392b"/>
+<text x="956" y="133" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">3 · FATTY CHANGE</text>
+<ellipse cx="956" cy="286" rx="64" ry="86" fill="#fdf2e7" stroke="#c0392b" stroke-width="2.5"/>
+<g fill="#f9d9a8" stroke="#b8894a" stroke-width="1.8">
+<circle cx="924" cy="248" r="19"/>
+<circle cx="980" cy="240" r="14"/>
+<circle cx="986" cy="300" r="21"/>
+<circle cx="920" cy="314" r="16"/>
+<circle cx="958" cy="342" r="12"/>
+</g>
+<circle cx="956" cy="280" r="17" fill="#8f2f2f"/>
+<text x="956" y="414" text-anchor="middle" font-size="13" font-weight="800" fill="#9c2317">Triglyceride accumulation</text>
+<text x="956" y="436" text-anchor="middle" font-size="11.5" fill="#5b7c78">Most common in the liver</text>
+<text x="956" y="456" text-anchor="middle" font-size="11.5" font-weight="700" fill="#9c2317">Steatosis</text>
+
+<rect x="40" y="462" width="1020" height="126" rx="12" fill="#fff" stroke="#dde8e3" stroke-width="2"/>
+<text x="550" y="492" text-anchor="middle" font-size="15" font-weight="800" fill="#0d5f63">KEY SHARED FEATURES</text>
+<text x="550" y="520" text-anchor="middle" font-size="12.5" fill="#2b4a50">Mild injury of SHORT duration</text>
+<text x="550" y="544" text-anchor="middle" font-size="12.5" fill="#2b4a50">Affects active parenchymatous cells</text>
+<text x="550" y="568" text-anchor="middle" font-size="12.5" font-weight="700" fill="#2b4a50">Changes limited to CYTOPLASM — nucleus stays intact</text>
+</g></svg>

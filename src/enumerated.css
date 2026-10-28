@@ -1,0 +1,59 @@
+/*
+  Inline enumerations "(1) … (2) … (3) …" unfold into a visible list.
+  The lead sentence stays on top; every item gets its own line with a numbered badge
+  so the eye can count the parts at a glance instead of hunting for "(2)" inside a block of text.
+*/
+
+.enum { display: block; }
+.enum-lead { display: block; margin-bottom: 7px; }
+
+.enum-list {
+  display: flex; flex-direction: column; gap: 5px;
+  margin: 0; padding: 0; list-style: none;
+}
+.enum-list li {
+  display: flex; align-items: flex-start; gap: 9px;
+  padding: 6px 10px 6px 8px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, .72);
+  border: 1px solid rgba(13, 95, 99, .14);
+}
+.enum-num {
+  flex: 0 0 21px; width: 21px; height: 21px; margin-top: 2px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: #0d5f63; color: #fff;
+  font-family: 'Caveat', 'Patrick Hand', cursive;
+  font-size: 13.5px; font-weight: 700; line-height: 1;
+}
+.enum-text { flex: 1; min-width: 0; }
+
+/* Arabic direction: badge on the right, text flows right-to-left */
+.enum-list li:dir(rtl) { flex-direction: row; }
+.enum-num:dir(rtl) { font-family: 'Lemonada', 'Mada', sans-serif; font-size: 11.5px; }
+
+/* Inside the paler translation / explanation bands, tint the items to match */
+.arabic-line .enum-list li { background: rgba(255, 255, 255, .78); border-color: rgba(35, 136, 138, .22); }
+.egyptian-line .enum-list li, .seq-eg .enum-list li { background: rgba(255, 255, 255, .8); border-color: rgba(199, 155, 78, .3); }
+.egyptian-line .enum-num, .seq-eg .enum-num { background: #b8894a; }
+
+/* Sequential-step bodies are already compact — keep the unfolded list tight there */
+.seq-en .enum-list, .seq-ar .enum-list, .seq-eg .enum-list { gap: 4px; }
+.seq-en .enum-list li, .seq-ar .enum-list li, .seq-eg .enum-list li { padding: 4px 8px 4px 6px; }
+
+/* A label badge ("الشرح") sits before the list in explanation lines */
+.seq-eg .seq-eg-tag { float: right; margin-left: 8px; }
+.seq-eg .enum { clear: both; }
+
+/* Decision branches (START steps): an arrow bullet instead of a number */
+.enum-branches .enum-lead { font-weight: 700; }
+.enum-arrow {
+  flex: 0 0 18px; margin-top: 1px;
+  color: #0d5f63; font-size: 16px; line-height: 1.2; font-weight: 700;
+}
+.enum-arrow:dir(rtl) { transform: scaleX(-1); display: inline-block; }
+.enum-branches .enum-list li { background: rgba(255,255,255,.6); border-style: dashed; }
+
+@media print {
+  .enum-list li, .enum-num { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}
