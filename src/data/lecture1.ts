@@ -1,10 +1,14 @@
+import { pathologyChapter } from './chapters';
 import { chips, dataTable, figure, figures, kvTable, n, s, term, text, type Lecture } from './types';
 
 export const lectureOne: Lecture = {
+  id: 1,
+  chapter: pathologyChapter,
   number: 1,
   en: 'Degeneration, Pathological Calcification & Cell Death',
   ar: 'التنكس الخلوي والتكلس المرضي وموت الخلايا',
   shortEn: 'Degeneration & Calcification',
+  shortAr: `التنكس والتكلس وموت الخلايا`,
   sections: [
     {
       number: 1,

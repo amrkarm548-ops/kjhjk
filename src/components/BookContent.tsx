@@ -1,5 +1,5 @@
 import { forwardRef, useState } from 'react';
-import { lectures, type Entry, type Figure, type Lecture, type Note, type Section } from '../data';
+import { chapters, lectures, type Entry, type Figure, type Lecture, type Note, type Section } from '../data';
 import { Highlight, HighlightAr } from './Highlight';
 import { Enumerated } from './Enumerated';
 
@@ -24,14 +24,16 @@ export type BlockMetric = { flow: number; box: number; img?: number };
 export function makeBlocks(): FlatBlock[] {
   const result: FlatBlock[] = [];
   lectures.forEach((lecture) => {
-    result.push({ id: `chapter-${lecture.number}`, kind: 'chapter', lecture });
+    result.push({ id: `chapter-${lecture.id}`, kind: 'chapter', lecture });
     lecture.sections.forEach((section) => {
-      result.push({ id: `section-${lecture.number}-${section.number}`, kind: 'section', lecture, section });
+      result.push({ id: `section-${lecture.id}-${section.number}`, kind: 'section', lecture, section });
       // Number the main points (1, 2, 3) and their sub-points (a, b, c). Plain leads take no number.
       let main = 0;
       let sub = 0;
       section.entries.forEach((entry, index) => {
         let label: string | undefined;
+        // Numbering restarts under every sub-heading so each group reads 1, 2, 3 …
+        if (entry.kind === 'subheading') { main = 0; sub = 0; }
         if (entry.kind === 'note' && !entry.note.plain) {
           if (entry.note.nested) { label = String.fromCharCode(97 + sub); sub += 1; }
           else { main += 1; sub = 0; label = String(main); }
@@ -39,12 +41,12 @@ export function makeBlocks(): FlatBlock[] {
         // A procedure step is split into two independently placeable parts so a
         // long step never leaves half a page blank: head+action | items+rationale+consequence.
         if (entry.kind === 'step') {
-          const base = `entry-${lecture.number}-${section.number}-${index}`;
+          const base = `entry-${lecture.id}-${section.number}-${index}`;
           result.push({ id: `${base}-main`, kind: 'entry', lecture, section, entry, label, sub: 'step-main' });
           result.push({ id: `${base}-tail`, kind: 'entry', lecture, section, entry, label, sub: 'step-tail' });
           return;
         }
-        result.push({ id: `entry-${lecture.number}-${section.number}-${index}`, kind: 'entry', lecture, section, entry, label });
+        result.push({ id: `entry-${lecture.id}-${section.number}-${index}`, kind: 'entry', lecture, section, entry, label });
       });
     });
   });
@@ -191,7 +193,8 @@ function NoteView({ note, compact = false, label, variant = 'full' }: { note: No
   const showEg = variant === 'full' ? needsExplanation(note) : !!note.eg;
   const showAr = variant !== 'explain' && !!note.ar;
   return (
-    <div className={`trilingual-note${note.nested ? ' nested-note' : ''}${compact ? ' compact-note' : ''}${note.plain ? ' plain-note' : ''}`}>
+    <div className={`trilingual-note${note.nested ? ' nested-note' : ''}${compact ? ' compact-note' : ''}${note.plain ? ' plain-note' : ''}${note.focus ? ' focus-note' : ''}`}>
+      {note.focus && <span className="focus-badge" dir="rtl">ركّزت الدكتورة على هذه النقطة</span>}
       <div className="english-line" dir="ltr" lang="en">
         {label && <span className="note-num" aria-hidden="true">{label}</span>}
         <p><Enumerated text={note.en} /></p>
@@ -501,8 +504,8 @@ function EntryView({ entry, label, fit, sub }: { entry: Entry; label?: string; f
       );
     case 'dataTable':
       return (
-        <div className="table-wrap data-wrap">
-          <div className="kv-caption"><span>{entry.captionEn}</span><span className="ar" dir="rtl">{entry.captionAr}</span></div>
+        <div className={`table-wrap data-wrap${entry.focus ? ' focus-table' : ''}`}>
+          <div className="kv-caption"><span>{entry.captionEn}</span><span className="ar" dir="rtl">{entry.focus && <em className="focus-tag">ركّزت الدكتورة</em>}{entry.captionAr}</span></div>
           <table className="data-table">
             <thead>
               <tr>{entry.columns.map((column) => <th key={column.en}>{column.en}<span dir="rtl">{column.ar}</span></th>)}</tr>
@@ -550,16 +553,25 @@ function EntryView({ entry, label, fit, sub }: { entry: Entry; label?: string; f
 
 export function BlockView({ block, fit }: { block: FlatBlock; fit?: number }) {
   if (block.kind === 'chapter') {
+    const { lecture } = block;
+    const numbered = lecture.chapter.number !== undefined;
     return (
       <div className="content-block chapter-block" data-block-id={block.id}>
-        <span className="chapter-watermark" aria-hidden="true">{String(block.lecture.number).padStart(2, '0')}</span>
-        <span className="chapter-kicker">LECTURE {String(block.lecture.number).padStart(2, '0')} / <span className="ar" dir="rtl">المحاضرة {block.lecture.number}</span></span>
-        <h2 dir="ltr">{block.lecture.en}</h2>
-        <p dir="rtl">{block.lecture.ar}</p>
+        {numbered && lecture.number === 1 && (
+          <div className="chapter-banner" dir="ltr">
+            <span className="banner-num">{String(lecture.chapter.number).padStart(2, '0')}</span>
+            <span className="banner-en">CHAPTER {lecture.chapter.number}: {lecture.chapter.en.toUpperCase()}</span>
+            <span className="banner-ar" dir="rtl">الفصل {lecture.chapter.number}: {lecture.chapter.ar}</span>
+          </div>
+        )}
+        <span className="chapter-watermark" aria-hidden="true">{String(lecture.number).padStart(2, '0')}</span>
+        <span className="chapter-kicker">LECTURE {String(lecture.number).padStart(2, '0')} / <span className="ar" dir="rtl">المحاضرة {lecture.number}</span></span>
+        <h2 dir="ltr">{lecture.en}</h2>
+        <p dir="rtl">{lecture.ar}</p>
         <div className="chapter-meta" dir="rtl">
-          <span>{block.lecture.sections.length} أقسام</span>
+          <span>{lecture.sections.length} أقسام</span>
           <i />
-          <span>{block.lecture.sections.reduce((sum, sec) => sum + sec.entries.length, 0)} نقطة مذاكرة</span>
+          <span>{lecture.sections.reduce((sum, sec) => sum + sec.entries.length, 0)} نقطة مذاكرة</span>
         </div>
       </div>
     );
@@ -583,15 +595,15 @@ export function BlockView({ block, fit }: { block: FlatBlock; fit?: number }) {
 export function CoverPage() {
   return (
     <article className="paper cover-paper" id="page-1" data-page-number="1" aria-label="غلاف الملزمة" dir="ltr">
-      <div className="cover-top"><span>NURSING EDUCATION SERIES</span><span className="cover-edition">STUDY EDITION / 05</span></div>
+      <div className="cover-top"><span>NURSING EDUCATION SERIES</span><span className="cover-edition">STUDY EDITION / 06</span></div>
       <div className="cover-rule" />
       <div className="cover-main">
-        <div className="cover-o2" aria-hidden="true">PATH</div>
+        <div className="cover-o2" aria-hidden="true">MED</div>
         <p className="cover-small">A STUDY COMPANION BY</p>
         <div className="cover-brand" dir="rtl">تمريضيانو<span>.</span></div>
         <div className="cover-divider" />
-        <h1>PATHOLOGY<br /><em>&amp; CELL RESPONSE</em></h1>
-        <p className="cover-arabic" dir="rtl">محاضرة ١ باثولوجي — مقدمة علم الأمراض والاستجابة الخلوية للإصابة</p>
+        <h1>MEDICAL STUDY<br /><em>NOTES</em></h1>
+        <p className="cover-arabic" dir="rtl">ملزمة المحاضرات: الباثولوجي، القلب، الجهاز التنفسي، وأمراض الدم</p>
         <p className="cover-description" dir="rtl">الإنجليزي للامتحان، والترجمة للفهم، والشرح المبسط عشان المعلومة تثبت.</p>
         <div className="cover-key" dir="rtl">
           <div><b>English</b><span>للامتحان</span></div>
@@ -609,9 +621,17 @@ export function CoverPage() {
       </div>
       <div className="cover-bottom">
         <div className="cover-bottom-heading"><span>CONTENTS</span><span dir="rtl">محتويات الملزمة</span></div>
-        {lectures.map((lecture) => (
-          <div className="cover-list-row" key={lecture.number}>
-            <span className="cover-list-number">0{lecture.number}</span><span>{lecture.en}</span><span dir="rtl">{lecture.ar}</span>
+        {chapters.map((chapter) => (
+          <div className="cover-chapter-group" key={chapter.id}>
+            <div className="cover-chapter-row">
+              <span>{chapter.number !== undefined ? `CHAPTER ${chapter.number} · ` : ''}{chapter.en.toUpperCase()}</span>
+              <span dir="rtl">{chapter.number !== undefined ? `الفصل ${chapter.number}: ` : ''}{chapter.ar}</span>
+            </div>
+            {lectures.filter((lecture) => lecture.chapter.id === chapter.id).map((lecture) => (
+              <div className="cover-list-row" key={lecture.id}>
+                <span className="cover-list-number">{String(lecture.number).padStart(2, '0')}</span><span>{lecture.shortEn}</span><span dir="rtl">{lecture.shortAr}</span>
+              </div>
+            ))}
           </div>
         ))}
       </div>
@@ -640,9 +660,9 @@ export const MeasurePage = forwardRef<HTMLDivElement, { blocks: FlatBlock[] }>(f
 export function ReadingPage({ page, number }: { page: BookPage; number: number }) {
   return (
     <article className="paper reading-paper" id={`page-${number}`} data-page-number={number} aria-label={`صفحة ${number}`} dir="ltr">
-      <header className="page-header"><span className="header-series">NURSING EDUCATION SERIES</span><span className="header-chapter">CHAPTER {String(page.lecture.number).padStart(2, '0')} <i /> {page.lecture.en.toUpperCase()}</span></header>
+      <header className="page-header"><span className="header-series">NURSING EDUCATION SERIES</span><span className="header-chapter">{page.lecture.chapter.number !== undefined ? `CHAPTER ${String(page.lecture.chapter.number).padStart(2, '0')} · ` : ''}{page.lecture.chapter.en.toUpperCase()} <i /> LECTURE {page.lecture.number}: {page.lecture.shortEn.toUpperCase()}</span></header>
       <div className="page-body">{page.blocks.map((block) => <BlockView key={block.id} block={block} fit={page.fit[block.id]} />)}</div>
-      <footer className="page-footer"><span className="footer-brand" dir="rtl">تمريضيانو</span><span className="footer-caption">DEGENERATION &amp; CALCIFICATION / STUDY NOTES</span><span className="footer-number">{String(number).padStart(2, '0')}</span></footer>
+      <footer className="page-footer"><span className="footer-brand" dir="rtl">تمريضيانو</span><span className="footer-caption">{page.lecture.shortEn.toUpperCase()} / STUDY NOTES</span><span className="footer-number">{String(number).padStart(2, '0')}</span></footer>
     </article>
   );
 }

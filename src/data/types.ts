@@ -8,6 +8,8 @@ export type Note = {
   plain?: boolean;
   /** Force showing the explanation even for short points. */
   forceEg?: boolean;
+  /** The lecturer stressed this point. */
+  focus?: boolean;
 };
 
 export type Figure = {
@@ -44,7 +46,7 @@ export type Entry =
   /** A procedure step: what you do, why you do it, and optional sub-points to check. */
   | { kind: 'step'; number: number; action: Note; rationale: Note; items?: { en: string; ar: string }[]; tone?: Tone }
   | { kind: 'kvTable'; captionEn: string; captionAr: string; rows: KvRow[] }
-  | { kind: 'dataTable'; captionEn: string; captionAr: string; columns: TableColumn[]; rows: TableRow[] }
+  | { kind: 'dataTable'; captionEn: string; captionAr: string; columns: TableColumn[]; rows: TableRow[]; focus?: boolean }
   | { kind: 'chips'; items: { en: string; ar: string; refs?: string }[] }
   | { kind: 'termCard'; termEn: string; termAr?: string; def: Note; tone?: Tone }
   | { kind: 'figures'; figures: Figure[] };
@@ -56,11 +58,25 @@ export type Section = {
   entries: Entry[];
 };
 
+export type Chapter = {
+  id: string;
+  /** Printed chapter number; chapters without one (the opening pathology lecture) show only their name. */
+  number?: number;
+  en: string;
+  ar: string;
+};
+
 export type Lecture = {
+  /** Unique, book-wide id (used for block ids and navigation). */
+  id: number;
+  chapter: Chapter;
+  /** Number of the lecture inside its chapter. */
   number: number;
   en: string;
   ar: string;
   shortEn: string;
+  /** Short Arabic name for the contents list and the toolbar. */
+  shortAr: string;
   sections: Section[];
 };
 
@@ -90,8 +106,8 @@ export const kvTable = (captionEn: string, captionAr: string, rows: KvRow[]): En
   kind: 'kvTable', captionEn, captionAr, rows,
 });
 
-export const dataTable = (captionEn: string, captionAr: string, columns: TableColumn[], rows: TableRow[]): Entry => ({
-  kind: 'dataTable', captionEn, captionAr, columns, rows,
+export const dataTable = (captionEn: string, captionAr: string, columns: TableColumn[], rows: TableRow[], focus = false): Entry => ({
+  kind: 'dataTable', captionEn, captionAr, columns, rows, ...(focus ? { focus } : {}),
 });
 
 export const chips = (items: { en: string; ar: string; refs?: string }[]): Entry => ({

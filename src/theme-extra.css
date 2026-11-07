@@ -50,3 +50,39 @@
 .term-card.tone-level4 .term-body { background: #f4f9fb; }
 .term-card.tone-level5 .term-body { background: #f4faf6; }
 .term-card.tone-black .term-body { background: #f7f7f7; }
+
+/* ---- Multi-chapter book: chapter banner, lecturer focus marks, grouped contents ---- */
+.chapter-banner {
+  display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 16px; align-items: center;
+  margin: 0 0 18px; padding: 14px 18px; border-radius: 12px;
+  background: linear-gradient(100deg, #0d5f63 0%, #14757c 70%, #b8894a 140%); color: #fff;
+}
+.chapter-banner .banner-num { grid-row: 1 / span 2; font: 800 44px/1 'Fraunces', Georgia, serif; letter-spacing: -.06em; color: rgba(255,255,255,.55); }
+.chapter-banner .banner-en { font: 800 14px 'Mulish', sans-serif; letter-spacing: .14em; }
+.chapter-banner .banner-ar { justify-self: end; font: 700 17px 'Tajawal', 'Mada', sans-serif; }
+
+.focus-note { position: relative; margin-top: 4px; padding: 8px 10px 13px !important; border: 1.5px solid #e2b23c !important; border-radius: 9px; background: #fff9e6; }
+.focus-badge { display: inline-block; margin-bottom: 5px; padding: 1px 9px; border-radius: 999px; background: #e2b23c; color: #4a3200; font: 700 10px 'Tajawal', 'Mada', sans-serif; }
+.focus-table .kv-caption { background: #fff3cc; }
+.focus-tag { display: inline-block; margin-inline-start: 8px; padding: 0 8px; border-radius: 999px; background: #e2b23c; color: #4a3200; font: 700 10px 'Tajawal', 'Mada', sans-serif; font-style: normal; }
+
+.chapter-group { margin-bottom: 14px; }
+.chapter-group-title { margin: 14px 0 6px; padding: 0 11px; color: #e6c98c; font: 700 12px 'Tajawal', 'Mada', sans-serif; line-height: 1.5; }
+.chapter-group-title small { display: block; color: #9abcb9; font: 600 9.5px 'Mulish', sans-serif; letter-spacing: .08em; direction: ltr; text-align: right; }
+.chapter-link { min-height: 0; padding: 8px 11px; }
+
+.cover-chapter-group { margin-top: 2px; }
+.cover-chapter-row { display: flex; justify-content: space-between; padding: 7px 0 3px; color: #b8894a; font: 800 9.5px 'Mulish', sans-serif; letter-spacing: .1em; }
+.cover-chapter-row span:last-child { font: 700 11px 'Tajawal', sans-serif; letter-spacing: 0; }
+.cover-list-row { padding: 5px 0 !important; }
+.cover-main { padding-top: 70px !important; }
+.cover-main h1 { font-size: 54px !important; }
+.cover-divider { margin: 20px 0 !important; }
+
+@media print {
+  .focus-note { background: #fff9e6 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .focus-badge, .focus-tag, .chapter-banner { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* Focus tables: the caption bar is pale yellow, so its text must be dark. */
+.focus-table .kv-caption, .focus-table .kv-caption span { color: #4a3200 !important; }

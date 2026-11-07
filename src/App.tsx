@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { BookOpen, Check, ChevronLeft, ChevronRight, ImagePlus, Menu, Printer, X } from 'lucide-react';
-import { lectures } from './data';
+import { chapters, lectures } from './data';
 import { CoverPage, fileNameOf, makeBlocks, MeasurePage, paginate, PAPER_HEIGHT, PAPER_WIDTH, ReadingPage, type BlockMetric, type BookPage } from './components/BookContent';
 
 /** Selectors for the real, visible pages only (the hidden measuring page uses the same classes). */
@@ -181,7 +181,8 @@ export default function App() {
   }, [guideOpen]);
 
   const totalPages = pages.length + 1;
-  const activeLecture = pages[currentPage - 2]?.lecture.number ?? 1;
+  const activeLecture = pages[currentPage - 2]?.lecture.id ?? 1;
+  const activeLectureData = lectures.find((lecture) => lecture.id === activeLecture) ?? lectures[0];
   const imageSlots = useMemo(() => {
     const found: { need: string; file: string; page: number; en: string; ar: string }[] = [];
     pages.forEach((page, index) => {
@@ -208,12 +209,12 @@ export default function App() {
           : 'أحسنت! وصلت للنهاية.';
 
   const findChapterPage = (lectureNumber: number) => {
-    const index = pages.findIndex((page) => page.blocks.some((block) => block.kind === 'chapter' && block.lecture.number === lectureNumber));
+    const index = pages.findIndex((page) => page.blocks.some((block) => block.kind === 'chapter' && block.lecture.id === lectureNumber));
     return index === -1 ? 1 : index + 2;
   };
 
   const findSectionPage = (lectureNumber: number, sectionNumber: number) => {
-    const index = pages.findIndex((page) => page.blocks.some((block) => block.kind === 'section' && block.lecture.number === lectureNumber && block.section.number === sectionNumber));
+    const index = pages.findIndex((page) => page.blocks.some((block) => block.kind === 'section' && block.lecture.id === lectureNumber && block.section.number === sectionNumber));
     return index === -1 ? findChapterPage(lectureNumber) : index + 2;
   };
 
@@ -240,21 +241,28 @@ export default function App() {
           </button>
           <button className="mobile-close" onClick={() => setMenuOpen(false)} aria-label="إغلاق"><X size={20} /></button>
           <p className="sidebar-eyebrow">NURSING EDUCATION SERIES</p>
-          <h2>محاضرة ١ باثولوجي<br />التنكس والتكلس وموت الخلايا</h2>
+          <h2>ملزمة تمريضيانو<br />الباثولوجي · القلب · الصدر · الدم</h2>
           <p className="sidebar-subtitle">English / الترجمة / الشرح</p>
         </div>
 
         <div className="sidebar-scroll">
           <p className="nav-label">الفهرس / CONTENTS</p>
-          {lectures.map((lecture) => (
-            <button key={lecture.number} className={`chapter-link${activeLecture === lecture.number && currentPage !== 1 ? ' active' : ''}`} onClick={() => goToPage(findChapterPage(lecture.number))}>
-              <span className="chapter-link-number">0{lecture.number}</span>
-              <span><strong>{lecture.ar}</strong><small>{lecture.en}</small></span>
-            </button>
+          {chapters.map((chapter) => (
+            <div className="chapter-group" key={chapter.id}>
+              <p className="chapter-group-title">
+                {chapter.number !== undefined ? `الفصل ${chapter.number} — ` : ''}{chapter.ar}<small>{chapter.en}</small>
+              </p>
+              {lectures.filter((lecture) => lecture.chapter.id === chapter.id).map((lecture) => (
+                <button key={lecture.id} className={`chapter-link${activeLecture === lecture.id && currentPage !== 1 ? ' active' : ''}`} onClick={() => goToPage(findChapterPage(lecture.id))}>
+                  <span className="chapter-link-number">{String(lecture.number).padStart(2, '0')}</span>
+                  <span><strong>{lecture.ar}</strong><small>{lecture.en}</small></span>
+                </button>
+              ))}
+            </div>
           ))}
           <div className="sidebar-section-list">
-            <p className="nav-label">داخل المحاضرة {activeLecture.toString().padStart(2, '0')}</p>
-            {lectures[activeLecture - 1].sections.map((section) => (
+            <p className="nav-label">داخل المحاضرة: {activeLectureData.ar}</p>
+            {activeLectureData.sections.map((section) => (
               <button key={section.number} onClick={() => goToPage(findSectionPage(activeLecture, section.number))}>
                 <span>{String(section.number).padStart(2, '0')}</span>{section.ar}
               </button>
@@ -275,7 +283,7 @@ export default function App() {
           <div className="toolbar-heading">
             <button className="mobile-menu" onClick={() => setMenuOpen(true)} aria-label="فتح الفهرس"><Menu size={21} /></button>
             <span className="toolbar-overline">تمريضيانو / STUDY NOTES</span>
-            <strong>محاضرة ١ باثولوجي — علم الأمراض والاستجابة الخلوية</strong>
+            <strong>{activeLectureData.chapter.ar} — {activeLectureData.shortAr}</strong>
           </div>
           <div className="toolbar-actions">
             <div className="page-control" aria-label="التنقل بين الصفحات">
